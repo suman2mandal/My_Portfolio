@@ -5,7 +5,7 @@ import {Outlet} from "react-router";
 function Template(props) {
     return (
         <>
-            <Header/>
+            <Header />
             <Outlet />
         </>
     );

@@ -1,15 +1,28 @@
 import React from 'react';
 import { BsFacebook } from 'react-icons/bs';
 import {AiFillLinkedin, AiFillTwitterCircle} from "react-icons/ai";
-import {FaGithub} from "react-icons/fa";
-import Education from './education';
+import {FaGithub, FaTwitter} from "react-icons/fa";
+
+
+// import required modules
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import '../style.css';
+
+// import required modules
+import { Pagination } from 'swiper/modules';
 function Home(props) {
 
     const project = ()=>{
         const projects=[]
 
         for(let i=0;i<3;i++) {
-            projects.push(<div className="flex flex-col items-center gap-x-8 rounded-md bg-slate-800 p-3 md:flex-row">
+            projects.push(<div className=" flex flex-col items-center gap-x-8 rounded-md  p-3 md:flex-row">
                 <div className="shrink-0"><a href="/demo/astro-boilerplate"><img
                     className="h-36 w-36 hover:translate-y-1" src="assets/images/project-web-design.png"
                     alt="Project Web Design" loading="lazy"/></a></div>
@@ -46,8 +59,8 @@ function Home(props) {
     const skills=()=>{
         const allSkills=[]
         for(let i=0;i<8;i++){
-                allSkills.push(<div
-                    className="h-44 w-32 bg-gray-100 rounded-xl flex flex-col justify-center shadow duration-300 text-black hover:bg-white hover:shadow-xl">
+                allSkills.push(
+                    <div className="h-44 w-32 justify-center justify-self-center bg-gray-100 rounded-xl flex flex-col justify-center shadow duration-300 text-black hover:bg-white hover:shadow-xl">
                 <svg className="h-14" viewBox="0 0 177 171">
                     <ellipse cx="107" cy="122" rx="53.6" ry="49.2" fill="#fab529"/>
                     <g fill="none" stroke="#000" stroke-linecap="round" stroke-width="4.2">
@@ -102,8 +115,7 @@ function Home(props) {
         const awards=[]
         for(let i=0;i<2;i++){
             awards.push(<div>
-                <div
-                    className="mb-2 relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
+                <div className="mb-2 flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white ">
                     <div className="w-full md:w-1/3 bg-white grid place-items-center">
                         <img
                             src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -155,114 +167,140 @@ function Home(props) {
     }
     return (
         <>
-            <div className="bg-slate-900 text-gray-100">
+            <Swiper
+                direction={'vertical'}
 
-            <div className="mx-auto max-w-screen-lg px-3 py-6">
-                <div className="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
-                    <div><h1 className="text-3xl font-bold">Hi there, I'm <span
-                        className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Suman Mandal</span> 👋
-                    </h1><p className="mt-6 text-xl leading-9">loren</p>
-                        <div className="mt-3 flex gap-1">
-                            <a href="/demo/astro-boilerplate">
-                                <AiFillTwitterCircle className={"social_icon"}/>
-                            </a>
-                            <a href="/demo/astro-boilerplate">
-                                <BsFacebook className={"social_icon"}/>
-                            </a>
-                            <a href="/demo/astro-boilerplate">
-                                <AiFillLinkedin className={"social_icon"}/>
-                            </a>
-                            <a href="/demo/astro-boilerplate">
-                                <FaGithub className={"social_icon"}/>
-                            </a>
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper "
+            >
+                <SwiperSlide>
+                    <div className="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
+                        <div>
+                            <h1 className="text-3xl font-bold">Hi there, I'm <span
+                                className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Suman Mandal</span> 👋
+                            </h1><p className="mt-6 text-xl leading-9">
+
+                        </p>
+                            <div className="mt-3 flex gap-1">
+                                <a href="/demo/astro-boilerplate">
+                                    <AiFillLinkedin className={"social_icon"}/>
+                                </a>
+                                <a href="/demo/astro-boilerplate">
+                                    <FaGithub className={"social_icon"}/>
+                                </a>
+                                <a href="/demo/astro-boilerplate">
+                                    <BsFacebook className={"social_icon"}/>
+                                </a>
+                                <a href="/demo/astro-boilerplate">
+                                    {/*<AiFillTwitterCircle style={{fontSize:"38px"}} className={"social_icon"}/>*/}
+                                    <FaTwitter className={"social_icon"}/>
+                                </a>
+                            </div>
                         </div>
-                    <div className="shrink-0"><img className="h-80 w-64" src="assets/images/avatar.svg"
-                                                   alt="Avatar image" loading="lazy"/></div>
-                </div>
-            </div>
-
-            <div className="mx-auto max-w-screen-lg px-3 py-6">
-                <div className="mb-6 text-2xl font-bold">Educational <span
-                    className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Qualification</span>
-                </div>
-                <div className="flex flex-col gap-6">
-                    {/*<Education/>*/}
-                    {project()}
-                </div>
-            </div>
-
-            <div className="mx-auto max-w-screen-lg px-3 py-6">
-                <div className="mb-6 text-2xl font-bold">Technical <span
-                    className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Skills</span>
-                </div>
-                <div className="flex gap-6">
-                    {skills()}
-                </div>
-            </div>
-
-            <div className="mx-auto max-w-screen-lg px-3 py-6">
-                <div className="mb-6 text-2xl font-bold">Recent <span
-                    className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Projects</span>
-                </div>
-                <div className="flex flex-col gap-6">
-                    {project()}
-                </div>
-            </div>
-
-
-                <div className="mx-auto max-w-screen-lg px-3 py-6">
-                    <div className="mb-6 text-2xl font-bold"> <span
-                        className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Certificates</span>
-                    </div>
-                <div className="mx-auto max-w-screen-lg px-3 ">
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                        {certificate()}
-                    </div>
-                </div>
-            </div>
-
-
-                <div className="mx-auto max-w-screen-lg px-3 py-6">
-                    <div className="mb-6 text-2xl font-bold"> <span
-                        className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Awards</span>
-                    </div>
-                    <div className="gap-6">
-                        {awards()}
-                    </div>
-                </div>
-
-            <div className="mx-auto max-w-screen-lg px-3 py-6">
-                <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-                    <div className="sm:w-7/12">
-                        <div className="text-3xl font-bold">Connect with <span
-                            className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Me</span>
+                        <div className="shrink-0">
+                            <img className="h-80 w-64" style={{borderRadius:"50%",height:"100%",width:"100%"}} src="https://avatars.githubusercontent.com/u/36975298?s=400&u=04b9b004887c2b8c833281df3284ad7874e28eea&v=4"
+                                 alt="Avatar image" loading="lazy"/>
                         </div>
-                        <p className="mt-3 text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Tenetur vero
-                            esse non molestias eos excepturi, inventore atque cupiditate.</p></div>
-                    <div className="w-full sm:w-5/12">
-                        <form className="flex rounded-full bg-slate-800 px-4 py-2 focus-within:ring-2 focus-within:ring-cyan-600 hover:ring-2 hover:ring-cyan-600">
-                            <input className="w-full appearance-none bg-slate-800 focus:outline-none"/>
-                                <button className="ml-2
+
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mx-auto text-white max-w-screen-lg px-3 py-10 ">
+                        <div className="mx-auto max-w-screen-lg px-3 py-6">
+                            <div className="mb-6 text-2xl font-bold">Educational <span
+                                className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Qualification</span>
+                            </div>
+                            <div className="flex flex-col gap-6">
+                                {/*<Education/>*/}
+                                {project()}
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mx-auto max-w-screen-lg px-3 py-6">
+                        <div className="mb-6 text-2xl font-bold">Technical <span
+                            className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Skills</span>
+                        </div>
+                        <div className="grid grid-cols-1 justify-center gap-6 md:grid-cols-5">
+                            {skills()}
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mx-auto max-w-screen-lg px-3 py-6">
+                        <div className="mb-6 text-2xl font-bold">Recent <span
+                            className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Projects</span>
+                        </div>
+                        <div className="flex flex-col gap-6">
+                            {project()}
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mx-auto max-w-screen-lg px-3 py-6">
+                        <div className="mb-6 text-2xl font-bold"> <span
+                            className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Certificates</span>
+                        </div>
+                        <div className="mx-auto max-w-screen-lg px-3 ">
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                                {certificate()}
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mx-auto max-w-screen-lg px-3 py-6">
+                        <div className="mb-6 text-2xl font-bold"> <span
+                            className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Awards</span>
+                        </div>
+                        <div className="gap-6">
+                            {awards()}
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="bg-slate-900 text-gray-100">
+                        <div className="mx-auto  max-w-screen-lg px-3 py-6 ">
+                            <div className="mx-auto max-w-screen-lg px-3 py-6">
+                                <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+                                    <div className="sm:w-7/12">
+                                        <div className="text-3xl font-bold">Connect with <span
+                                            className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Me</span>
+                                        </div>
+                                        <p className="mt-3 text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Tenetur vero
+                                            esse non molestias eos excepturi, inventore atque cupiditate.</p></div>
+                                    <div className="w-full sm:w-5/12">
+                                        <form className="flex rounded-full bg-slate-800 px-4 py-2 focus-within:ring-2 focus-within:ring-cyan-600 hover:ring-2 hover:ring-cyan-600">
+                                            <input className="w-full appearance-none bg-slate-800 focus:outline-none"/>
+                                            <button className="ml-2
                                 shrink-0 rounded-full bg-gradient-to-br from-sky-500 to-cyan-400 px-3 py-1 text-sm
                                 font-medium hover:from-sky-700 hover:to-cyan-600 focus:outline-none focus:ring-2
                                 focus:ring-cyan-600/50" type="submit">
-                                    Subscribe
-                                </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                                                Subscribe
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div className="mx-auto max-w-screen-lg px-3 py-6">
-                <div className="border-t border-gray-600 pt-5">
-                    <div className="text-sm text-gray-200">Copyright @Suman Mandal
+                            <div className="mx-auto max-w-screen-lg px-3 py-6">
+                                <div className="border-t border-gray-600 pt-5">
+                                    <div className="text-sm text-gray-200">Copyright @Suman Mandal
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-            </div>
+                </SwiperSlide>
+
+            </Swiper>
+
         </>
     );
 }

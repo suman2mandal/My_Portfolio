@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header(props) {
     return (
-        <div className="bg-slate-900 text-gray-100" style={{position:"sticky",top:0 }}>
+        <div className="bg-slate-900 text-gray-100" >
             <div className="mx-auto max-w-screen-lg px-3 py-6">
                 <div className="flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between"><a
                     href="/demo/astro-boilerplate">

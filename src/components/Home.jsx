@@ -11,11 +11,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import Certificates from "./Certificates";
+import Awards from "./Awards";
 import '../style.css';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import EducationSlide from "./EducationSlide";
+
 function Home(props) {
 
     const project = ()=>{
@@ -179,7 +182,7 @@ function Home(props) {
                 <SwiperSlide>
                     <div className="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
                         <div>
-                            <h1 className="text-3xl font-bold">Hi there, I'm <span
+                            <h1 className="text-3xl text-white font-bold">Hi there, I'm <span
                                 className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Suman Mandal</span> 👋
                             </h1><p className="mt-6 text-xl leading-9">
 
@@ -213,10 +216,11 @@ function Home(props) {
                             <div className="mb-6 text-2xl font-bold">Educational <span
                                 className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Qualification</span>
                             </div>
-                            <div className="flex flex-col gap-6">
-                                {/*<Education/>*/}
-                                {project()}
-                            </div>
+                            {/*<div className="flex flex-col gap-6">*/}
+                            {/*    /!*<Education/>*!/*/}
+                            {/*    {project()}*/}
+                            {/*</div>*/}
+                            <EducationSlide project={project()}/>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -245,11 +249,14 @@ function Home(props) {
                         <div className="mb-6 text-2xl font-bold"> <span
                             className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Certificates</span>
                         </div>
-                        <div className="mx-auto max-w-screen-lg px-3 ">
-                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                                {certificate()}
-                            </div>
-                        </div>
+                        {/*<div className="mx-auto max-w-screen-lg px-3 ">*/}
+                        {/*    /!*<div className="grid grid-cols-1 gap-6 md:grid-cols-3">*!/*/}
+                        {/*    /!*    /!*{certificate()}*!/*!/*/}
+                        {/*    /!*    *!/*/}
+                        {/*    /!*</div>*!/*/}
+                        {/*    */}
+                        {/*</div>*/}
+                        <Certificates/>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -257,13 +264,15 @@ function Home(props) {
                         <div className="mb-6 text-2xl font-bold"> <span
                             className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Awards</span>
                         </div>
-                        <div className="gap-6">
-                            {awards()}
-                        </div>
+                        {/*    <div className="gap-6">*/}
+                        {/*        {awards()}*/}
+                        {/*    </div>*/}
+
+                        <Awards/>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-slate-900 text-gray-100">
+                    <div className="bg-slate-900 text-gray-100 rounded-3xl">
                         <div className="mx-auto  max-w-screen-lg px-3 py-6 ">
                             <div className="mx-auto max-w-screen-lg px-3 py-6">
                                 <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">

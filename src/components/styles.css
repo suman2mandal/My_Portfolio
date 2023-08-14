@@ -38,3 +38,9 @@
     height: 100%;
     object-fit: cover;
 }
+
+.swiper-pagination-bullet{
+    background-color: white;
+    height: 15px;
+    width: 15px;
+}

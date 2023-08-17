@@ -11,7 +11,7 @@ import './styles.css';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-export default function EducationSlide({project}) {
+export default function EducationSlide({qualification}) {
     return (
         <div>
             <Swiper
@@ -24,7 +24,7 @@ export default function EducationSlide({project}) {
                 className="mySwiper text-white"
             >
                 {/*<SwiperSlide><div className="w-20 h-20"></div></SwiperSlide>*/}
-                {project}
+                {qualification}
             </Swiper>
 
         </div>

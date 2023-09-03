@@ -2,7 +2,7 @@ import React from 'react';
 import { BsFacebook } from 'react-icons/bs';
 import {AiFillLinkedin} from "react-icons/ai";
 import {FaGithub, FaTwitter} from "react-icons/fa";
-
+import { MobileView } from 'react-device-detect';
 
 // import required modules
 // Import Swiper React components
@@ -23,60 +23,50 @@ import AllProjects from "./AllProjects"
 
 function Home(props) {
 
+    const carousel_space_provider = (<SwiperSlide style={{ display: window.innerWidth > 768 ? 'none' : 'block' }}>
+    </SwiperSlide>)
     const qualification = ()=>{
         const all_qualification=[]
 
-        for(let i=0;i<3;i++) {
+        all_qualification.push(
+            carousel_space_provider
+        )
+        for(let i=0;i<4;i++) {
             all_qualification.push(
-                <SwiperSlide>
-                    {/*<div className="bg-white rounded-xl flex flex-col items-center gap-x-8 rounded-md  p-3 md:flex-row">*/}
-                    {/*    <div className="shrink-0"><a href="/demo/astro-boilerplate"><img*/}
-                    {/*        className="h-36 w-36 hover:translate-y-1" src="assets/images/project-web-design.png"*/}
-                    {/*        alt="Project Web Design" loading="lazy"/></a></div>*/}
-                    {/*    <div>*/}
-                    {/*        <div className="flex flex-col items-center gap-y-2 md:flex-row"><a*/}
-                    {/*            className="hover:text-cyan-400" href="/demo/astro-boilerplate">*/}
-                    <div className="h-48 bg-[#0f172a] flex">
-                        <div className="w-2/6">
-                            <a href="/demo/astro-boilerplate">
-                                <img className="h-36 w-36 hover:translate-y-1" src="https://cdn.pixabay.com/photo/2023/08/06/14/25/flower-8173078_1280.jpg"
-                                alt="Project Web Design" loading="lazy"/>
-                            </a>
+                <SwiperSlide className="z-10">
+                    <div
+                        className="block max-w-[18rem] rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                        <div className="relative overflow-hidden bg-cover bg-no-repeat">
+                            <img
+                                className="rounded-t-lg"
+                                src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                                alt=""/>
                         </div>
-                        <div className="w-4/6">
-                            <div className="text-xl font-semibold">Qualification {i}</div>
-                            <p className="mt-3 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Suspendisse
-                                bibendum. Nunc non posuere consectetur, justo erat semper enim, non
-                                hendrerit dui odio id enim.</p>
+                        <div className="p-6">
+                            <div>
+                                Bachelor of Technology with Honors 2023 (87%)
+                                <p className="text-base text-neutral-600 dark:text-neutral-200">
+                                    asdfasdf
+                                </p>
+                            </div>
+                            <div className="grid grid-cols-2 justify-items-start">
+                                <p className="text-base text-neutral-600 dark:text-neutral-200">
+                                    asdfasdf
+                                </p>
+                                <p className="text-base text-neutral-600 dark:text-neutral-200">
+                                    asdfasdf
+                                </p>
+                            </div>
+
+
                         </div>
                     </div>
-
-                    {/*        </a>*/}
-                    {/*            <div className="ml-3 flex gap-2">*/}
-                    {/*                <div*/}
-                    {/*                    className="rounded-md px-2 py-1 text-xs font-semibold bg-fuchsia-400 text-fuchsia-900">Astro.js*/}
-                    {/*                </div>*/}
-                    {/*                <div*/}
-                    {/*                    className="rounded-md px-2 py-1 text-xs font-semibold bg-lime-400 text-lime-900">Web*/}
-                    {/*                    design*/}
-                    {/*                </div>*/}
-                    {/*                <div*/}
-                    {/*                    className="rounded-md px-2 py-1 text-xs font-semibold bg-sky-400 text-sky-900">Tailwind.css*/}
-                    {/*                </div>*/}
-                    {/*                <div*/}
-                    {/*                    className="rounded-md px-2 py-1 text-xs font-semibold bg-rose-400 text-rose-900">TypeScript*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <p className="mt-3 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
-                    {/*            Suspendisse*/}
-                    {/*            bibendum. Nunc non posuere consectetur, justo erat semper enim, non*/}
-                    {/*            hendrerit dui odio id enim.</p></div>*/}
-                    {/*</div>*/}
                 </SwiperSlide>
             )
             }
+        all_qualification.push(
+            carousel_space_provider
+        )
             return all_qualification
     }
 
@@ -154,35 +144,19 @@ const allSkills=()=>{
     for(let i=0;i<5;i++) {
         allSkills.push(
             <SwiperSlide>
-                <div className=" flex flex-col items-center gap-x-8 rounded-md  p-3 md:flex-row">
-                    <div className="shrink-0"><a href="/demo/astro-boilerplate"><img
-                        className="h-36 w-36 hover:translate-y-1" src="assets/images/project-web-design.png"
-                        alt="Project Web Design" loading="lazy"/></a></div>
-                    <div>
-                        <div className="flex flex-col items-center gap-y-2 md:flex-row"><a
-                            className="hover:text-cyan-400" href="/demo/astro-boilerplate">
-                            <div className="text-xl font-semibold">Project 1</div>
-                        </a>
-                            <div className="ml-3 flex gap-2">
-                                <div
-                                    className="rounded-md px-2 py-1 text-xs font-semibold bg-fuchsia-400 text-fuchsia-900">Astro.js
-                                </div>
-                                <div
-                                    className="rounded-md px-2 py-1 text-xs font-semibold bg-lime-400 text-lime-900">Web
-                                    design
-                                </div>
-                                <div
-                                    className="rounded-md px-2 py-1 text-xs font-semibold bg-sky-400 text-sky-900">Tailwind.css
-                                </div>
-                                <div
-                                    className="rounded-md px-2 py-1 text-xs font-semibold bg-rose-400 text-rose-900">TypeScript
-                                </div>
-                            </div>
-                        </div>
-                        <p className="mt-3 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse
-                            bibendum. Nunc non posuere consectetur, justo erat semper enim, non
-                            hendrerit dui odio id enim.</p></div>
+                <div
+                    className="flex flex-row m-auto bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 p-6 gap-8 rounded-lg border-2 border-purple-500">
+                    <div className="my-auto">
+                        <div className="text-lg text-purple-300">Downloads</div>
+                        <div className="text-4xl text-purple-100">622k</div>
+                    </div>
+                    <div
+                        className="text-purple-300 my-auto bg-gradient-to-l from-purple-700 via-purple-800 to-purple-900 rounded-full p-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" viewBox="0 0 20 20"
+                             fill="currentColor">
+                            <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"/>
+                        </svg>
+                    </div>
                 </div>
             </SwiperSlide>
         )
@@ -285,7 +259,7 @@ const all_certificate=()=>{
                 className="mySwiper "
             >
                 <SwiperSlide>
-                    <div className="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
+                    <div className="p-6 flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
                         <div>
                             <h1 className="text-3xl text-white font-bold">Hi there, I'm <span
                                 className="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Suman Mandal</span> 👋
